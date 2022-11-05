@@ -1,0 +1,61 @@
+{
+  "name": "merchflow-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "dev:start": "NODE_ENV=development env-cmd -f .env.development --fallback --silent next dev",
+    "staging:start": "NODE_ENV=staging env-cmd -f .env.staging --fallback --silent next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "staging:build": "NODE_ENV=staging env-cmd -f .env.staging --fallback --silent next build",
+    "prod:start": "NODE_ENV=production env-cmd -f .env.production --fallback --silent next start",
+    "prod:build": "NODE_ENV=production env-cmd -f .env.production --fallback --silent next build",
+    "docker-up:dev": "docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build",
+    "docker-up:staging": "docker-compose -f docker-compose.yml -f docker-compose-staging.yml up -d --build",
+    "docker-up:prod": "docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build"
+  },
+  "dependencies": {
+    "@auth0/auth0-react": "^1.10.1",
+    "@emotion/core": "^11.0.0",
+    "@emotion/styled": "^11.8.1",
+    "@mantine/core": "^4.2.7",
+    "@mantine/hooks": "^4.2.7",
+    "@mantine/next": "^4.2.7",
+    "@tabler/icons": "^1.90.0",
+    "axios": "^0.27.2",
+    "frontmatter-markdown-loader": "^3.6.3",
+    "lodash": "^4.17.21",
+    "next": "^12.0.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.31.3",
+    "react-query": "^3.39.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^0.2.3",
+    "react-select-async-paginate": "^0.6.2",
+    "react-table": "^7.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^12.0.4",
+    "@svgr/webpack": "^6.1.2",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^17.0.33",
+    "@types/react": "^18.0.9",
+    "@types/react-router-dom": "^5.3.3",
+    "babel-plugin-import": "^1.13.3",
+    "env-cmd": "^10.1.0",
+    "eslint": "8.15.0",
+    "eslint-config-next": "12.1.6",
+    "husky": "^4.3.8",
+    "typescript": "^4.6.4",
+    "webpack": "^5.64.4"
+  }
+}
